@@ -6,25 +6,21 @@ module.exports = {
 
   CreateUser: async (args) => {
     try {
-      const existingUser = await User.findOne({ username: args.userinput.username });
+      const hashedpassword = await generate(args.userInput.password);
+      const existingUser = await User.findOne({ username: args.userInput.username });
       if (existingUser) {
-        throw new Error('user already exist');
+        throw new Error('User already exist');
       }
-    } catch (err) {
-      throw err;
-    }
-    const hashedpassword = await generate(args.userinput.password);
-    try {
-      const newuser = new User({
+      const newUser = new User({
 
-        firstname: args.userinput.firstname,
-        lastname: args.userinput.lastname,
-        username: args.userinput.username,
+        firstname: args.userInput.firstname,
+        lastname: args.userInput.lastname,
+        username: args.userInput.username,
         password: hashedpassword
       });
 
-      const result = await newuser.save();
-      return { ...result._doc, _id: newuser.id, password: null };
+      const result = await newUser.save();
+      return { ...result._doc, _id: newUser.id, password: null };
     } catch (err) {
       throw err;
     }

@@ -11,7 +11,7 @@ module.exports = buildSchema(`
         password: String
     }
 
-    input userinput{
+    input UserInput{
         firstname: String!,
         lastname: String!,
         username : String!,
@@ -19,7 +19,7 @@ module.exports = buildSchema(`
     }
 
     type RootMutation{
-        CreateUser(userinput:userinput): User!
+        CreateUser(userInput: UserInput): User!
     }
 
     type RootQuery {

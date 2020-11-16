@@ -1,7 +1,7 @@
-const userresolver = require('./user');
+const userResolver = require('./user');
 
 const Rootresolver = {
-  ...userresolver
+  ...userResolver
 
 };
 
