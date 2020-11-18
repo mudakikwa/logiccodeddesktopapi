@@ -1,7 +1,10 @@
-const userResolver = require('./user');
+import adminResolver from './admin';
+
+import userResolver from './user';
 
 const Rootresolver = {
-  ...userResolver
+  ...userResolver,
+  ...adminResolver
 
 };
 
