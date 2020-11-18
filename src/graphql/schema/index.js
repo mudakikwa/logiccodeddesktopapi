@@ -11,6 +11,17 @@ module.exports = buildSchema(`
         password: String
     }
 
+    type AdminAuthData{
+        role:String!
+        Admin_Username:String!
+        token : String!
+    }
+
+    input AdminInput{
+        username : String!,
+        password: String!       
+    }
+
     input UserInput{
         firstname: String!,
         lastname: String!,
@@ -20,6 +31,7 @@ module.exports = buildSchema(`
 
     type RootMutation{
         CreateUser(userInput: UserInput): User!
+        AdminLogin(adminInput: AdminInput): AdminAuthData!
     }
 
     type RootQuery {
