@@ -3,35 +3,31 @@ import { buildSchema } from 'graphql';
 module.exports = buildSchema(`
 
 
-    type User{
+    type Message{
         _id: ID!
-        firstname: String!,
-        lastname: String!,
-        username : String!,
-        password: String
+        message: String!,
+    }
+    type SignUp{
+        _id:String!
+        username:String!
+        email:String!
+        password:String!
+
     }
 
-    type AdminAuthData{
-        role:String!
-        Admin_Username:String!
-        token : String!
-    }
+    input signUpInput{
+        username:String!
+        email:String!
+        password:String!
+        comfirmPassword:String!
 
-    input AdminInput{
-        username : String!,
-        password: String!       
     }
-
-    input UserInput{
-        firstname: String!,
-        lastname: String!,
-        username : String!,
-        password: String!       
+    input UnsubsribeInput{
+        _id:String!
     }
 
     type RootMutation{
-        CreateUser(userInput: UserInput): User!
-        AdminLogin(adminInput: AdminInput): AdminAuthData!
+        SignUp(signUpData: signUpInput): SignUp!
     }
 
     type RootQuery {
