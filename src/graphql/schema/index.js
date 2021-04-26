@@ -40,6 +40,12 @@ module.exports = buildSchema(`
         description:String!
         code:String!
     }
+    input updateCodeInput{
+        _id:String!
+        title:String!
+        description:String!
+        code:String!
+    }
 
     input UnsubsribeInput{
         _id:String!
@@ -50,10 +56,12 @@ module.exports = buildSchema(`
         Login(loginData: loginInput): SignUp!
 
         AddCode(codeData:addCodeInput):Code!
+        UpdateCode(codeData:updateCodeInput):Code!
     }
 
     type RootQuery {
         dummy: String
+        AllCode:[Code!]!
       }
 
 
