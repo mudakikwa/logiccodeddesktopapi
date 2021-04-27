@@ -46,6 +46,9 @@ module.exports = buildSchema(`
         description:String!
         code:String!
     }
+    input deleteCodeInput{
+        _id:String!
+    }
 
     input UnsubsribeInput{
         _id:String!
@@ -57,6 +60,7 @@ module.exports = buildSchema(`
 
         AddCode(codeData:addCodeInput):Code!
         UpdateCode(codeData:updateCodeInput):Code!
+        DeleteCode(codeData:deleteCodeInput):Message!
     }
 
     type RootQuery {

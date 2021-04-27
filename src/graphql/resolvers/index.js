@@ -8,6 +8,7 @@ import loginResolver from './auth/login';
 import addCodeResolver from './code/create';
 import readCodeResolver from './code/read';
 import updateCodeResolver from './code/update';
+import deleteCodeResolver from './code/delete';
 
 const Rootresolver = {
   ...userResolver,
@@ -17,6 +18,7 @@ const Rootresolver = {
   ...addCodeResolver,
   ...readCodeResolver,
   ...updateCodeResolver,
+  ...deleteCodeResolver,
 };
 
 module.exports = Rootresolver;
