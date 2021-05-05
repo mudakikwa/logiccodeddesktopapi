@@ -1,1 +1,1 @@
-worker: npm run build && node ./src/dist/index
+worker: npm run build && node ./src/dist/index.js
