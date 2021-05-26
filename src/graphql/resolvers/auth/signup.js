@@ -19,6 +19,7 @@ module.exports = {
         throw new Error('User already exist');
       }
       const newUser = new User({
+        fullname: args.signUpData.fullname,
         username: args.signUpData.username,
         email: args.signUpData.email,
         password: hashedpassword,

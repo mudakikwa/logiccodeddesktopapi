@@ -10,6 +10,8 @@ import readCodeResolver from './code/read';
 import updateCodeResolver from './code/update';
 import deleteCodeResolver from './code/delete';
 
+import addFeedBackResolver from './feedback/addFeedBack'
+
 const Rootresolver = {
   ...userResolver,
   ...adminResolver,
@@ -19,6 +21,7 @@ const Rootresolver = {
   ...readCodeResolver,
   ...updateCodeResolver,
   ...deleteCodeResolver,
+  ...addFeedBackResolver
 };
 
 module.exports = Rootresolver;
