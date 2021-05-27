@@ -12,6 +12,8 @@ import deleteCodeResolver from './code/delete';
 
 import addFeedBackResolver from './feedback/addFeedBack'
 
+import addRatingResolver from './rate/addRating'
+
 const Rootresolver = {
   ...userResolver,
   ...adminResolver,
@@ -21,7 +23,8 @@ const Rootresolver = {
   ...readCodeResolver,
   ...updateCodeResolver,
   ...deleteCodeResolver,
-  ...addFeedBackResolver
+  ...addFeedBackResolver,
+  ...addRatingResolver
 };
 
 module.exports = Rootresolver;

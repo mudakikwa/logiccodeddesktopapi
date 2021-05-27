@@ -20,6 +20,11 @@ module.exports = buildSchema(`
         feedback:String!
         userId:String!
     }
+    type Rating{
+        _id:String!
+        rating:String!
+        userId:String!
+    }
 
     type Code{
         _id:String!
@@ -65,6 +70,10 @@ module.exports = buildSchema(`
         feedback:String!
         userId:String!
     }
+    input ratingInput{
+        rating:String!
+        userId:String!
+    }
 
     type RootMutation{
         SignUp(signUpData: signUpInput): SignUp!
@@ -75,6 +84,8 @@ module.exports = buildSchema(`
         DeleteCode(codeData:deleteCodeInput):Message!
 
         AddFeedBack(feedBackData:feedBackInput):FeedBack!
+
+        AddRating(ratingData: ratingInput): Rating!
     }
 
     type RootQuery {
