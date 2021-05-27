@@ -9,10 +9,21 @@ module.exports = buildSchema(`
     }
     type SignUp{
         _id:String!
+        fullname:String!
         username:String!
         email:String!
         password:String!
 
+    }
+    type FeedBack{
+        _id:String!
+        feedback:String!
+        userId:String!
+    }
+    type Rating{
+        _id:String!
+        rating:String!
+        userId:String!
     }
 
     type Code{
@@ -23,6 +34,7 @@ module.exports = buildSchema(`
     }
 
     input signUpInput{
+        fullname:String!
         username:String!
         email:String!
         password:String!
@@ -46,9 +58,21 @@ module.exports = buildSchema(`
         description:String!
         code:String!
     }
+    input deleteCodeInput{
+        _id:String!
+    }
 
     input UnsubsribeInput{
         _id:String!
+    }
+
+    input feedBackInput{
+        feedback:String!
+        userId:String!
+    }
+    input ratingInput{
+        rating:String!
+        userId:String!
     }
 
     type RootMutation{
@@ -57,6 +81,11 @@ module.exports = buildSchema(`
 
         AddCode(codeData:addCodeInput):Code!
         UpdateCode(codeData:updateCodeInput):Code!
+        DeleteCode(codeData:deleteCodeInput):Message!
+
+        AddFeedBack(feedBackData:feedBackInput):FeedBack!
+
+        AddRating(ratingData: ratingInput): Rating!
     }
 
     type RootQuery {
