@@ -13,7 +13,8 @@ module.exports = buildSchema(`
         username:String!
         email:String!
         password:String!
-
+        token:String!
+        tokenExpiration:String!
     }
     type FeedBack{
         _id:String!
