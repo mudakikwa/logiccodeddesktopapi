@@ -10,9 +10,12 @@ import readCodeResolver from './code/read';
 import updateCodeResolver from './code/update';
 import deleteCodeResolver from './code/delete';
 
-import addFeedBackResolver from './feedback/addFeedBack'
+import addFeedBackResolver from './feedback/addFeedBack';
 
-import addRatingResolver from './rate/addRating'
+import addRatingResolver from './rate/addRating';
+
+import addAds from './ads/index';
+import allAds from './ads/allAds';
 
 const Rootresolver = {
   ...userResolver,
@@ -24,7 +27,9 @@ const Rootresolver = {
   ...updateCodeResolver,
   ...deleteCodeResolver,
   ...addFeedBackResolver,
-  ...addRatingResolver
+  ...addRatingResolver,
+  ...addAds,
+  ...allAds
 };
 
 module.exports = Rootresolver;

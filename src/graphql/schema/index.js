@@ -33,7 +33,11 @@ module.exports = buildSchema(`
         description:String!
         code:String!
     }
-
+    
+    type Ads{
+        _id:String!
+        link:String!
+    }
     input signUpInput{
         fullname:String!
         username:String!
@@ -75,6 +79,9 @@ module.exports = buildSchema(`
         rating:String!
         userId:String!
     }
+    input adsInput{
+        link:String!
+    }
 
     type RootMutation{
         SignUp(signUpData: signUpInput): SignUp!
@@ -87,11 +94,14 @@ module.exports = buildSchema(`
         AddFeedBack(feedBackData:feedBackInput):FeedBack!
 
         AddRating(ratingData: ratingInput): Rating!
+
+        AddAds(adsData:adsInput):Ads
     }
 
     type RootQuery {
         dummy: String
         AllCode:[Code!]!
+        AllAds:[Ads!]!
       }
 
 
