@@ -1,6 +1,9 @@
+import jwt from 'jsonwebtoken';
 import { check } from '../../../helpers/bcrypt';
 
 import User from '../../../database/models/user';
+
+import config from '../../../config';
 
 module.exports = {
   Login: async (args) => {
@@ -11,10 +14,13 @@ module.exports = {
       });
       if (existingUser) {
         if (check(existingUser.password, password)) {
+          const token = jwt.sign({ userId: existingUser.id, email: existingUser.email }, `${config.SECRET_KEY}`, { expiresIn: '1h' });
           return {
             ...existingUser._doc,
             _id: existingUser.id,
             password: null,
+            token,
+            tokenExpiration: 1
           };
         }
 
@@ -25,5 +31,5 @@ module.exports = {
     } catch (err) {
       throw err;
     }
-  },
+  }
 };

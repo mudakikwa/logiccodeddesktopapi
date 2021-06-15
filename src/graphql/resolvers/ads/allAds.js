@@ -1,9 +1,9 @@
-import Code from '../../../database/models/code';
+import Ads from '../../../database/models/ads';
 
 module.exports = {
-  AllCode: async () => {
+  AllAds: async () => {
     try {
-      const codeSearch = await Code.find({});
+      const codeSearch = await Ads.find({}).sort({ _id: -1 }).limit(1);
       return codeSearch.map((data) => ({ ...data._doc }));
     } catch (error) {
       throw error;

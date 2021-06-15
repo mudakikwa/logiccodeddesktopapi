@@ -1,4 +1,5 @@
 import jwt from 'jsonwebtoken';
+import config from '../config';
 
 // eslint-disable-next-line consistent-return
 module.exports = (req, res, next) => {
@@ -14,7 +15,7 @@ module.exports = (req, res, next) => {
   }
   let decodedToken;
   try {
-    decodedToken = jwt.verify(token, 'somesupersecretkey');
+    decodedToken = jwt.verify(token, `${config.SECRET_KEY}`);
   } catch (err) {
     req.isAuth = false;
     return next();
